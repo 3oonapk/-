@@ -6,6 +6,7 @@
 #include "Mapa.h"
 #include "view.h"
 #include "Player.h"
+#pragma comment(linker, "/SUBSYSTEM:windows / ENTRY:mainCRTStart")
 
 using namespace std;
 using namespace sf;
@@ -22,15 +23,16 @@ int main()
     RenderWindow window(VideoMode(iWidth, iHeight), "Game", Style::Fullscreen);
     window.setFramerateLimit(70);
 
-   while (true)
+   while (window.isOpen())
    {
         switch (finish)
         {
-            case 1: menu(window);
-            case 2: game(window);
-            case 3: manualF(window);
+            case 1: menu(window); break;
+            case 2: game(window); break;
+            case 3:  manualF(window); break;
         }
    }
+
     return 0;
 }
 void menu(RenderWindow & window)
@@ -184,23 +186,25 @@ bool game(RenderWindow & window)
 
 void manualF(RenderWindow & window)
 {
-    Event event;
-    while (window.pollEvent(event))
-    {
+
+    View cam2;
     Font font;
     font.loadFromFile("fonts\\16768.otf");
-
     Text text("'Esc' - go to the Menu\n'Enter' - bring camera to the charachter\n'Arrows' - move camera\n'WASD' - move charachter\n\nGood luck, have fun!", font);
     text.setCharacterSize(20);
     text.setStyle(Text::Bold);
     text.setFillColor(Color::White);
-    window.clear();
-    window.draw(text);
-    if (event.type == Event::Closed)
-                window.close();
-    }
+    while(finish == 3)
+    {
+
     if (Keyboard::isKeyPressed(Keyboard::Escape))
     {
         finish = 1;
+    }
+    window.setView(cam2);
+    window.clear();
+    window.draw(text);
+    window.display();
+
     }
 }

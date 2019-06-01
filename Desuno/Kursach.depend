@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1559152174 source:c:\users\1\desktop\Экзамены\Программирование\Курсач\codb\kursach\main.cpp
+1559292861 source:c:\users\1\desktop\Экзамены\Программирование\Курсач\codb\kursach\main.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
 	<windows.h>
@@ -854,7 +854,7 @@
 1559052891 source:c:\users\1\desktop\Экзамены\Программирование\Курсач\codb\kursach\src\mapa.cpp
 	"Mapa.h"
 
-1559054414 source:c:\users\1\desktop\Экзамены\Программирование\Курсач\codb\kursach\src\player.cpp
+1559152477 source:c:\users\1\desktop\Экзамены\Программирование\Курсач\codb\kursach\src\player.cpp
 	"Player.h"
 
 1553530842 source:c:\users\1\desktop\Экзамены\Программирование\Курсач\codb\kursach\src\cell.cpp

@@ -20,7 +20,7 @@ int main()
      unsigned int iWidth = GetSystemMetrics(SM_CXSCREEN);  // разрешение экрана по горизонтали
     unsigned int iHeight = GetSystemMetrics(SM_CYSCREEN); // разрешение экрана по вертикали
     srand(time(0));
-    RenderWindow window(VideoMode(iWidth, iHeight), "Game", Style::Fullscreen);
+    RenderWindow window(VideoMode(iWidth, iHeight), "Game"/*, Style::Fullscreen*/);
     window.setFramerateLimit(70);
 
    while (window.isOpen())
@@ -35,12 +35,12 @@ int main()
 
     return 0;
 }
-void menu(RenderWindow & window)
+void menu(RenderWindow & window)            //Функция, отображающая меню
 {
     unsigned int iWidth = GetSystemMetrics(SM_CXSCREEN);  // разрешение экрана по горизонтали
     unsigned int iHeight = GetSystemMetrics(SM_CYSCREEN); // разрешение экрана по вертикали
 
-    View cam;
+    View cam;           //Создание отдельной камеры для меню
     cam.setCenter(iWidth / 2, iHeight / 2);
     Texture background, start, exit, manual;
     background.loadFromFile("sprites\\Menu.png");
@@ -186,12 +186,16 @@ bool game(RenderWindow & window)
 
 void manualF(RenderWindow & window)
 {
+    unsigned int iWidth = GetSystemMetrics(SM_CXSCREEN);  // разрешение экрана по горизонтали
+    unsigned int iHeight = GetSystemMetrics(SM_CYSCREEN); // разрешение экрана по вертикали
+
 
     View cam2;
     Font font;
     font.loadFromFile("fonts\\16768.otf");
     Text text("'Esc' - go to the Menu\n'Enter' - bring camera to the charachter\n'Arrows' - move camera\n'WASD' - move charachter\n\nGood luck, have fun!", font);
-    text.setCharacterSize(20);
+    text.setCharacterSize(40);
+    text.setPosition(60, iHeight / 4);
     text.setStyle(Text::Bold);
     text.setFillColor(Color::White);
     while(finish == 3)
